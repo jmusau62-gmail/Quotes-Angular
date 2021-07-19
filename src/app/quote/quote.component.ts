@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import {Quote} from '../quote';
 @Component({
@@ -6,6 +7,8 @@ import {Quote} from '../quote';
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
+  
+  
 
   quotes:Quote[] = [ 
    new Quote (1,'Wooo', 'Ric Flair') ,
@@ -15,14 +18,16 @@ export class QuoteComponent implements OnInit {
    new Quote (5 , 'Do your math' , 'Batman'),
   new Quote (6,'Plot my world domination plan', 'Doom'),
   ];
+
+    completeQuote(isComplete, index) {
+      if (isComplete) {
+        this.quotes.splice (index,1);
+      }
+    }
+constructor (){}
+ngOnInit (){
+
 }
 
-toggleDetails(index){
-  this.quotes[index].showDescription = !this.quotes[index].showDescription;
-}
-  constructor() { }
+}  
 
-  ngOnInit() {
-  }
-
-}
