@@ -19,12 +19,12 @@ export class QuoteComponent implements OnInit {
   new Quote (6,'Plot my world domination plan', 'Doom',new Date (2030,3,14)),
   ];
 
-    completeQuote(isComplete, index) {
+    completeQuote(isComplete: any, index: number) {
       if (isComplete) {
         this.quotes.splice (index,1);
       }
     }
-    deleteQuote(isComplete, index){
+    deleteQuote(isComplete: any, index: number){
       if (isComplete) {
         let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].name}?`)
   
